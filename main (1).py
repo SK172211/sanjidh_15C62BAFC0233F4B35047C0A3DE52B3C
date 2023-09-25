@@ -1,23 +1,26 @@
-year = int(input("Enter year to be checked: "))
+class student:
 
- 
+  def __init__(self, name, roll_number, cgpa):
+    self.name = name
+    self.roll_number =  roll_number 
+    self.cgpa = cgpa 
 
-if year % 4 == 0:
+def sort_students(student_list):
+  # sort the list of student in descending order of CGPA 
+  sorted_students = sorted(student_list, key=lambda student: student.cgpa,reverse=True) 
+  # syntax - Lambda arg:exp 
+  return sorted_students 
 
-    if year % 100 == 0:
+# Example usage:
+student = [
+    student("Hari","A123", 7.8), 
+    student("Srikanth","A124", 8.9), 
+    student("Saumya","A125", 9.1), 
+    student("Mahidhar","A126", 9.9), 
+] 
 
-        if year % 400 == 0:
+sorted_students = sort_students(student)
 
-            print("The year is a leap year!")
-
-        else:
-
-            print("The year is not a leap year!")
-
-    else:
-
-        print("The year is a leap year!")
-
-else:
-
-    print("The year is not a leap year!")
+# print the sorted list of students 
+for student in sorted_students:
+  print("Name: {}, Roll Number: {}, CGPA: {}".format(student.name, student.roll_number, student. cgpa))
